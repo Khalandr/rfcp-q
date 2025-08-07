@@ -1,0 +1,600 @@
+{
+  "metadata": {
+    "title": "Robot Framework Foundation Level Questions",
+    "version": "1.0",
+    "syllabus_version": "Robot Framework Syllabus v1.0",
+    "created_date": "2025-08-08",
+    "total_questions": 20,
+    "description": "Questions based on Robot Framework syllabus following GASQquestion writing standards"
+  },
+  "questions": [
+    {
+      "id": 1,
+      "learning_objective": "LO-1.1",
+      "k_level": "K1",
+      "chapter": "Chapter 1.1: Purpose and Use Cases",
+      "topic": "Main use cases of Robot Framework",
+      "question_type": "Type-A",
+      "question": "What are the two main use cases of Robot Framework?",
+      "options": [
+        "Web testing and mobile testing",
+        "Test automation and robotic process automation (RPA)",
+        "Unit testing and integration testing",
+        "Performance testing and security testing"
+      ],
+      "correct_answer": 1,
+      "explanation": "Robot Framework is a versatile framework that supports both test automation and robotic process automation (RPA), making it useful for both IT and business environments.",
+      "option_explanations": {
+        "0": "Incorrect - While Robot Framework can perform web and mobile testing, these are specific applications rather than the main use cases.",
+        "1": "Correct - The two main use cases are test automation and robotic process automation (RPA).",
+        "2": "Incorrect - These are types of testing that can be done with Robot Framework, but not the main use cases.",
+        "3": "Incorrect - These are specific testing types, not the primary use cases of Robot Framework."
+      }
+    },
+    {
+      "id": 2,
+      "learning_objective": "LO-1.1.1",
+      "k_level": "K1",
+      "chapter": "Chapter 1.1: Purpose and Use Cases",
+      "topic": "Test levels Robot Framework is used for",
+      "question_type": "Type-A",
+      "question": "Which test levels is Robot Framework MOST commonly used for?",
+      "options": [
+        "Component testing and integration testing",
+        "System testing, system integration testing, and acceptance testing",
+        "Unit testing and component testing",
+        "Performance testing and load testing"
+      ],
+      "correct_answer": 1,
+      "explanation": "Robot Framework is primarily used for higher-level testing such as system, system integration, acceptance, and end-to-end testing due to its keyword-driven approach.",
+      "option_explanations": {
+        "0": "Incorrect - Robot Framework is typically not used for low-level component and integration testing.",
+        "1": "Correct - Robot Framework excels at system, system integration, acceptance, and end-to-end testing.",
+        "2": "Incorrect - Unit and component testing are better handled by specialized frameworks like JUnit or pytest.",
+        "3": "Incorrect - While performance testing is possible, it's not the primary use case for Robot Framework."
+      }
+    },
+    {
+      "id": 3,
+      "learning_objective": "LO-1.2.1",
+      "k_level": "K1",
+      "chapter": "Chapter 1.2: Architecture of Robot Framework",
+      "topic": "Generic Test Automation Architecture layers",
+      "question_type": "Type-A",
+      "question": "In the Generic Test Automation Architecture (gTAA), which layer contains Robot Framework's test data written in Robot Framework syntax?",
+      "options": [
+        "Execution Layer",
+        "Definition Layer",
+        "Adaptation Layer",
+        "Infrastructure Layer"
+      ],
+      "correct_answer": 1,
+      "explanation": "The Definition Layer contains the test data including test cases, tasks, resource files with user keywords and variables, all written using Robot Framework syntax.",
+      "option_explanations": {
+        "0": "Incorrect - The Execution Layer contains Robot Framework's core components and APIs for processing test execution.",
+        "1": "Correct - The Definition Layer contains test data written in Robot Framework syntax including test cases and resource files.",
+        "2": "Incorrect - The Adaptation Layer contains keyword libraries that interact with the system under test.",
+        "3": "Incorrect - Infrastructure Layer is not a standard layer in the gTAA model for Robot Framework."
+      }
+    },
+    {
+      "id": 4,
+      "learning_objective": "LO-1.2.2",
+      "k_level": "K1",
+      "chapter": "Chapter 1.2: Architecture of Robot Framework",
+      "topic": "What Robot Framework includes and excludes",
+      "question_type": "Type-A",
+      "question": "Which of the following is NOT included as part of Robot Framework itself?",
+      "options": [
+        "A parser to read test data and build execution model",
+        "Web front-end automation libraries",
+        "A result generation mechanism for logs and reports",
+        "A collection of generic standard libraries"
+      ],
+      "correct_answer": 1,
+      "explanation": "Robot Framework focuses on test execution and does not include specific technology libraries like web automation libraries, which are provided by external libraries.",
+      "option_explanations": {
+        "0": "Incorrect - A parser for test data is included as part of Robot Framework's core functionality.",
+        "1": "Correct - Web front-end automation libraries are external libraries, not part of Robot Framework itself.",
+        "2": "Incorrect - Result generation for logs and reports is a core feature of Robot Framework.",
+        "3": "Incorrect - Generic standard libraries for data processing and file handling are included with Robot Framework."
+      }
+    },
+    {
+      "id": 5,
+      "learning_objective": "LO-1.2.3",
+      "k_level": "K1",
+      "chapter": "Chapter 1.2: Architecture of Robot Framework",
+      "topic": "Technology and prerequisites",
+      "question_type": "Type-A",
+      "question": "What technology is Robot Framework built on?",
+      "options": [
+        "Java",
+        "JavaScript",
+        "Python",
+        "C++"
+      ],
+      "correct_answer": 2,
+      "explanation": "Robot Framework is built on Python, though it can be extended with libraries written in other programming languages.",
+      "option_explanations": {
+        "0": "Incorrect - While Robot Framework can work with Java libraries, it's not built on Java.",
+        "1": "Incorrect - Robot Framework is not built on JavaScript.",
+        "2": "Correct - Robot Framework is built on Python and requires a Python interpreter to run.",
+        "3": "Incorrect - Robot Framework is not built on C++."
+      }
+    },
+    {
+      "id": 6,
+      "learning_objective": "LO-1.3",
+      "k_level": "K1",
+      "chapter": "Chapter 1.3: Basic Syntax and Structure",
+      "topic": "Key attributes of Robot Framework syntax",
+      "question_type": "Type-A",
+      "question": "How many spaces are recommended as the primary separator in Robot Framework syntax?",
+      "options": [
+        "Two (2) spaces",
+        "Three (3) spaces",
+        "Four (4) spaces",
+        "One (1) space"
+      ],
+      "correct_answer": 2,
+      "explanation": "Robot Framework recommends using four (4) spaces as the primary separator to ensure clarity and readability of the test specification.",
+      "option_explanations": {
+        "0": "Incorrect - Two spaces are the minimum required, but four spaces are recommended for better readability.",
+        "1": "Incorrect - Three spaces are not the recommended standard for Robot Framework.",
+        "2": "Correct - Four spaces are recommended to ensure clarity and readability.",
+        "3": "Incorrect - One space is valid as a character but not recommended as the primary separator."
+      }
+    },
+    {
+      "id": 7,
+      "learning_objective": "LO-1.3.3",
+      "k_level": "K2",
+      "chapter": "Chapter 1.3: Basic Syntax and Structure",
+      "topic": "Difference between User Keywords and Library Keywords",
+      "question_type": "Type-A",
+      "question": "What is the main difference between User Keywords and Library Keywords?",
+      "options": [
+        "User Keywords are faster than Library Keywords",
+        "User Keywords are written in Robot Framework syntax, Library Keywords are typically written in Python",
+        "Library Keywords are more reliable than User Keywords",
+        "User Keywords can only be used once, Library Keywords can be reused"
+      ],
+      "correct_answer": 1,
+      "explanation": "User Keywords are written in Robot Framework syntax for structuring tests, while Library Keywords are typically implemented in Python or other programming languages to interact with systems.",
+      "option_explanations": {
+        "0": "Incorrect - Performance is not the main distinguishing factor between these keyword types.",
+        "1": "Correct - User Keywords use Robot Framework syntax and are higher-level, while Library Keywords are typically implemented in Python and are lower-level.",
+        "2": "Incorrect - Both types of keywords can be equally reliable when properly implemented.",
+        "3": "Incorrect - Both User Keywords and Library Keywords are designed to be reusable."
+      }
+    },
+    {
+      "id": 8,
+      "learning_objective": "LO-1.3.4",
+      "k_level": "K1",
+      "chapter": "Chapter 1.3: Basic Syntax and Structure",
+      "topic": "Difference between Resource Files and Libraries",
+      "question_type": "Type-A",
+      "question": "Which of the following statements about Resource Files and Libraries is CORRECT?",
+      "options": [
+        "Resource Files contain Library Keywords, Libraries contain User Keywords",
+        "Resource Files contain User Keywords, Libraries contain Library Keywords",
+        "Both Resource Files and Libraries contain the same type of keywords",
+        "Resource Files are only used for storing variables"
+      ],
+      "correct_answer": 1,
+      "explanation": "Resource Files contain User Keywords and are part of the Definition Layer, while Libraries contain Library Keywords and are part of the Adaptation Layer.",
+      "option_explanations": {
+        "0": "Incorrect - This reverses the correct relationship between Resource Files and Libraries.",
+        "1": "Correct - Resource Files contain User Keywords (and variables), while Libraries contain Library Keywords.",
+        "2": "Incorrect - Resource Files and Libraries contain different types of keywords serving different purposes.",
+        "3": "Incorrect - While Resource Files can store variables, they also contain User Keywords."
+      }
+    },
+    {
+      "id": 9,
+      "learning_objective": "LO-1.4",
+      "k_level": "K1",
+      "chapter": "Chapter 1.4: Specification Styles",
+      "topic": "Three specification styles",
+      "question_type": "Type-A",
+      "question": "Which of the following are the three main specification styles in Robot Framework?",
+      "options": [
+        "Keyword-Driven, Behavior-Driven, and Model-Driven",
+        "Keyword-Driven, Behavior-Driven, and Data-Driven",
+        "Behavior-Driven, Data-Driven, and Event-Driven",
+        "Keyword-Driven, Test-Driven, and Data-Driven"
+      ],
+      "correct_answer": 1,
+      "explanation": "The three main specification styles in Robot Framework are Keyword-Driven, Behavior-Driven, and Data-Driven specification.",
+      "option_explanations": {
+        "0": "Incorrect - Model-Driven is not one of the three main specification styles in Robot Framework.",
+        "1": "Correct - Keyword-Driven, Behavior-Driven, and Data-Driven are the three main specification styles.",
+        "2": "Incorrect - Event-Driven is not one of the specification styles, and Keyword-Driven is missing.",
+        "3": "Incorrect - Test-Driven is not one of the specification styles in this context."
+      }
+    },
+    {
+      "id": 10,
+      "learning_objective": "LO-1.4.1",
+      "k_level": "K2",
+      "chapter": "Chapter 1.4: Specification Styles",
+      "topic": "Keyword-Driven Specification concepts",
+      "question_type": "Type-A",
+      "question": "Which characteristic BEST describes Keyword-Driven Specification?",
+      "options": [
+        "Focuses on describing system behavior from user's perspective",
+        "Expresses automation steps through imperative commands in a specific order",
+        "Separates test data from test logic for multiple data variations",
+        "Uses natural language constructs like Given, When, Then"
+      ],
+      "correct_answer": 1,
+      "explanation": "Keyword-Driven Specification uses imperative commands that define specific actions to be executed in a particular order, similar to procedural programming.",
+      "option_explanations": {
+        "0": "Incorrect - This describes Behavior-Driven Specification, not Keyword-Driven.",
+        "1": "Correct - Keyword-Driven Specification uses imperative commands executed in a specific order.",
+        "2": "Incorrect - This describes Data-Driven Specification.",
+        "3": "Incorrect - Given, When, Then constructs are characteristic of Behavior-Driven Specification."
+      }
+    },
+    {
+      "id": 11,
+      "learning_objective": "LO-1.4.2",
+      "k_level": "K2",
+      "chapter": "Chapter 1.4: Specification Styles",
+      "topic": "Behavior-Driven Specification concepts",
+      "question_type": "Type-A",
+      "question": "Which specification style focuses on describing what the system should do from the user's perspective using natural language constructs?",
+      "options": [
+        "Keyword-Driven Specification",
+        "Behavior-Driven Specification",
+        "Data-Driven Specification",
+        "Model-Driven Specification"
+      ],
+      "correct_answer": 1,
+      "explanation": "Behavior-Driven Specification uses natural language constructs like Given, When, Then to describe system behavior from the user's perspective.",
+      "option_explanations": {
+        "0": "Incorrect - Keyword-Driven Specification focuses on imperative commands and specific actions to be executed.",
+        "1": "Correct - Behavior-Driven Specification describes system behavior from user's perspective using Given, When, Then constructs.",
+        "2": "Incorrect - Data-Driven Specification separates test data from test logic but doesn't focus on user perspective.",
+        "3": "Incorrect - Model-Driven Specification is not one of the three main specification styles in Robot Framework."
+      }
+    },
+    {
+      "id": 12,
+      "learning_objective": "LO-1.4.3",
+      "k_level": "K2",
+      "chapter": "Chapter 1.4: Specification Styles",
+      "topic": "Differences between Keyword-Driven and Behavior-Driven",
+      "question_type": "Type-A",
+      "question": "What is the core difference between Keyword-Driven and Behavior-Driven specification styles?",
+      "options": [
+        "Keyword-Driven is faster to execute than Behavior-Driven",
+        "Keyword-Driven is action-centric and imperative, Behavior-Driven is user-focused and declarative",
+        "Behavior-Driven requires more programming skills than Keyword-Driven",
+        "Keyword-Driven can only be used for web testing, Behavior-Driven for API testing"
+      ],
+      "correct_answer": 1,
+      "explanation": "Keyword-Driven style is action-centric and imperative (what to do), while Behavior-Driven style is user-focused and declarative (how system should behave).",
+      "option_explanations": {
+        "0": "Incorrect - Execution speed is not the core difference between these specification styles.",
+        "1": "Correct - Keyword-Driven emphasizes actions in order (imperative), while Behavior-Driven emphasizes expected outcomes from user perspective (declarative).",
+        "2": "Incorrect - Behavior-Driven is actually designed to be more accessible to non-technical stakeholders.",
+        "3": "Incorrect - Both styles can be used for various types of testing, not limited to specific technologies."
+      }
+    },
+    {
+      "id": 13,
+      "learning_objective": "LO-1.4.4",
+      "k_level": "K1",
+      "chapter": "Chapter 1.4: Specification Styles",
+      "topic": "Purpose of Data-Driven Specification",
+      "question_type": "Type-A",
+      "question": "What is the main purpose of Data-Driven Specification in testing?",
+      "options": [
+        "To make tests run faster",
+        "To automate the same test logic with different sets of input and expected output data",
+        "To reduce the number of keywords needed",
+        "To make tests more readable for business users"
+      ],
+      "correct_answer": 1,
+      "explanation": "Data-Driven Specification allows the same test logic to be executed with multiple data variations, making it efficient for testing the same functionality with different inputs.",
+      "option_explanations": {
+        "0": "Incorrect - Speed is not the primary purpose of Data-Driven Specification.",
+        "1": "Correct - Data-Driven Specification automates the same sequence of actions with different data sets without duplicating test logic.",
+        "2": "Incorrect - It doesn't necessarily reduce keywords, but separates data from test logic.",
+        "3": "Incorrect - While it can improve maintainability, readability for business users is more associated with Behavior-Driven Specification."
+      }
+    },
+    {
+      "id": 14,
+      "learning_objective": "LO-1.5.1",
+      "k_level": "K1",
+      "chapter": "Chapter 1.5: Organization and Licensing",
+      "topic": "Open-source license type",
+      "question_type": "Type-A",
+      "question": "Under which open-source license is Robot Framework distributed?",
+      "options": [
+        "MIT License",
+        "Apache License 2.0",
+        "GNU General Public License (GPL)",
+        "BSD License"
+      ],
+      "correct_answer": 1,
+      "explanation": "Robot Framework is licensed under the Apache License 2.0, which is a permissive open-source license that allows free use, modification, and distribution including for commercial purposes.",
+      "option_explanations": {
+        "0": "Incorrect - Robot Framework is not distributed under the MIT License.",
+        "1": "Correct - Apache License 2.0 is the open-source license used for Robot Framework distribution.",
+        "2": "Incorrect - Robot Framework does not use the GPL license.",
+        "3": "Incorrect - Robot Framework is not distributed under the BSD License."
+      }
+    },
+    {
+      "id": 15,
+      "learning_objective": "LO-1.5.1",
+      "k_level": "K2",
+      "chapter": "Chapter 1.5: Organization and Licensing",
+      "topic": "Apache License characteristics",
+      "question_type": "Type-A",
+      "question": "Which of the following is a key characteristic of the Apache License 2.0 under which Robot Framework is distributed?",
+      "options": [
+        "It requires all derivative works to be open source",
+        "It is permissive and allows commercial use without significant restrictions",
+        "It prohibits modification of the original source code",
+        "It requires payment of licensing fees for commercial use"
+      ],
+      "correct_answer": 1,
+      "explanation": "Apache License 2.0 is a permissive license that allows free use, modification, and distribution including for commercial purposes without significant restrictions.",
+      "option_explanations": {
+        "0": "Incorrect - Apache License 2.0 does not require derivative works to be open source, unlike copyleft licenses.",
+        "1": "Correct - The Apache License 2.0 is permissive and allows commercial use, modification, and distribution without significant restrictions.",
+        "2": "Incorrect - The license explicitly allows modification of the source code.",
+        "3": "Incorrect - Apache License 2.0 is free and does not require licensing fees."
+      }
+    },
+    {
+      "id": 16,
+      "learning_objective": "LO-1.5.2",
+      "k_level": "K1",
+      "chapter": "Chapter 1.5: Organization and Licensing",
+      "topic": "Robot Framework Foundation key objectives",
+      "question_type": "Type-A",
+      "question": "Which of the following is NOT a key objective of the Robot Framework Foundation?",
+      "options": [
+        "Support for core development of Robot Framework",
+        "Democratic governance with elected Board of Directors",
+        "Providing commercial support and training services",
+        "Organizing RoboCon annual conference"
+      ],
+      "correct_answer": 2,
+      "explanation": "The Robot Framework Foundation is a non-profit organization focused on open-source development and community support, not commercial services.",
+      "option_explanations": {
+        "0": "Incorrect - Supporting core development is indeed a key objective of the foundation.",
+        "1": "Incorrect - Democratic governance with an elected board is a key principle of the foundation.",
+        "2": "Correct - The foundation does NOT provide commercial support services; it's focused on non-profit, open-source activities.",
+        "3": "Incorrect - Organizing RoboCon is one of the foundation's community support activities."
+      }
+    },
+    {
+      "id": 17,
+      "learning_objective": "LO-1.5.2",
+      "k_level": "K2",
+      "chapter": "Chapter 1.5: Organization and Licensing",
+      "topic": "Robot Framework Foundation organizational form",
+      "question_type": "Type-A",
+      "question": "What type of organization is the Robot Framework Foundation?",
+      "options": [
+        "A commercial corporation providing paid services",
+        "A non-profit association based in Helsinki, Finland",
+        "A government agency regulating test automation",
+        "A consortium of commercial testing tool vendors"
+      ],
+      "correct_answer": 1,
+      "explanation": "The Robot Framework Foundation (Robot Framework ry) is a non-profit association based in Helsinki, Finland, dedicated to promoting open-source Robot Framework development.",
+      "option_explanations": {
+        "0": "Incorrect - The foundation is non-profit and does not provide commercial services.",
+        "1": "Correct - Robot Framework Foundation is a non-profit association based in Helsinki, Finland.",
+        "2": "Incorrect - It's not a government agency but an independent non-profit organization.",
+        "3": "Incorrect - While it has member companies, it's not a consortium of commercial vendors."
+      }
+    },
+    {
+      "id": 18,
+      "learning_objective": "LO-1.5.3",
+      "k_level": "K1",
+      "chapter": "Chapter 1.5: Organization and Licensing",
+      "topic": "Official Robot Framework webpages",
+      "question_type": "Type-A",
+      "question": "What is the official main webpage for Robot Framework?",
+      "options": [
+        "robotframework.com",
+        "robotframework.org",
+        "robot-framework.org",
+        "rf.org"
+      ],
+      "correct_answer": 1,
+      "explanation": "The official main webpage for Robot Framework is robotframework.org, maintained by the Robot Framework Foundation.",
+      "option_explanations": {
+        "0": "Incorrect - The official site uses .org, not .com domain.",
+        "1": "Correct - robotframework.org is the official main page providing overview, documentation, and resources.",
+        "2": "Incorrect - The official URL does not use hyphens in the domain name.",
+        "3": "Incorrect - This is not the official Robot Framework website."
+      }
+    },
+    {
+      "id": 19,
+      "learning_objective": "LO-1.5.3",
+      "k_level": "K1",
+      "chapter": "Chapter 1.5: Organization and Licensing",
+      "topic": "Official Robot Framework repository",
+      "question_type": "Type-A",
+      "question": "Where can you find the official Robot Framework source code repository?",
+      "options": [
+        "gitlab.com/robotframework",
+        "github.com/robotframework",
+        "bitbucket.org/robotframework",
+        "sourceforge.net/robotframework"
+      ],
+      "correct_answer": 1,
+      "explanation": "The official source code repository for Robot Framework and its components is maintained at github.com/robotframework.",
+      "option_explanations": {
+        "0": "Incorrect - The official repository is not hosted on GitLab.",
+        "1": "Correct - github.com/robotframework is the official repository for Robot Framework source code.",
+        "2": "Incorrect - The official repository is not on Bitbucket.",
+        "3": "Incorrect - Robot Framework is not hosted on SourceForge."
+      }
+    },
+    {
+      "id": 20,
+      "learning_objective": "LO-1.5.2",
+      "k_level": "K2",
+      "chapter": "Chapter 1.5: Organization and Licensing",
+      "topic": "Robot Framework Foundation activities",
+      "question_type": "Roman",
+      "question": "Which of the following statements about the Robot Framework Foundation are TRUE?",
+      "statements": [
+        "The foundation funds core development and maintenance of Robot Framework",
+        "The foundation operates under democratic principles with an elected Board of Directors",
+        "The foundation provides commercial training and certification programs",
+        "The foundation organizes RoboCon, the annual Robot Framework User Conference",
+        "The foundation is a for-profit organization that charges licensing fees"
+      ],
+      "options": [
+        "i, ii, and iv",
+        "i, ii, and iii",
+        "ii, iii, and v",
+        "i, iii, and v"
+      ],
+      "correct_answer": 0,
+      "explanation": "The Robot Framework Foundation funds development (i), operates democratically (ii), and organizes RoboCon (iv). It does not provide commercial services (iii) and is non-profit (v).",
+      "option_explanations": {
+        "0": "Correct - Statements i (funding development), ii (democratic governance), and iv (organizing RoboCon) are all true about the foundation.",
+        "1": "Incorrect - Statement iii is false; the foundation does not provide commercial training programs.",
+        "2": "Incorrect - Statement v is false; the foundation is non-profit and does not charge licensing fees.",
+        "3": "Incorrect - Statements iii and v are both false; the foundation is non-profit and doesn't provide commercial services."
+      }
+    }
+  ],
+  "chapters": [
+    {
+      "chapter_id": "1.1",
+      "title": "Purpose and Use Cases",
+      "question_count": 2
+    },
+    {
+      "chapter_id": "1.2", 
+      "title": "Architecture of Robot Framework",
+      "question_count": 3
+    },
+    {
+      "chapter_id": "1.3",
+      "title": "Basic Syntax and Structure", 
+      "question_count": 3
+    },
+    {
+      "chapter_id": "1.4",
+      "title": "Specification Styles",
+      "question_count": 4
+    },
+    {
+      "chapter_id": "1.5",
+      "title": "Organization and Licensing",
+      "question_count": 8
+    }
+  ],
+  "learning_objectives": [
+    {
+      "lo_id": "LO-1.1",
+      "description": "Recall the two main use cases of Robot Framework",
+      "k_level": "K1"
+    },
+    {
+      "lo_id": "LO-1.1.1", 
+      "description": "Recall the test levels Robot Framework is mostly used for",
+      "k_level": "K1"
+    },
+    {
+      "lo_id": "LO-1.2.1",
+      "description": "Recall the layers of the Generic Test Automation Architecture (gTAA) and their corresponding components in Robot Framework",
+      "k_level": "K1"
+    },
+    {
+      "lo_id": "LO-1.2.2",
+      "description": "Recall what is part of Robot Framework and what is not", 
+      "k_level": "K1"
+    },
+    {
+      "lo_id": "LO-1.2.3",
+      "description": "Recall the technology Robot Framework is built on and the prerequisites for running it",
+      "k_level": "K1"
+    },
+    {
+      "lo_id": "LO-1.3",
+      "description": "Recall the key attributes of the syntax that makes Robot Framework simple and human-readable",
+      "k_level": "K1"
+    },
+    {
+      "lo_id": "LO-1.3.3",
+      "description": "Explain the difference between User Keywords and Library Keywords",
+      "k_level": "K2"
+    },
+    {
+      "lo_id": "LO-1.3.4",
+      "description": "Recall the difference between Resource Files and Libraries and their artifacts",
+      "k_level": "K1"
+    },
+    {
+      "lo_id": "LO-1.4",
+      "description": "Recall the three specification styles of Robot Framework",
+      "k_level": "K1"
+    },
+    {
+      "lo_id": "LO-1.4.1",
+      "description": "Understand the basic concepts of Keyword-Driven Specification",
+      "k_level": "K2"
+    },
+    {
+      "lo_id": "LO-1.4.2",
+      "description": "Understand the basic concepts of Behavior-Driven Specification",
+      "k_level": "K2"
+    },
+    {
+      "lo_id": "LO-1.4.3",
+      "description": "Recall the differences between Keyword-Driven and Behavior-Driven Specification",
+      "k_level": "K2"
+    },
+    {
+      "lo_id": "LO-1.4.4",
+      "description": "Recall the purpose of Data-Driven Specification",
+      "k_level": "K1"
+    },
+    {
+      "lo_id": "LO-1.5.1",
+      "description": "Recall the type of open-source license under which Robot Framework is distributed",
+      "k_level": "K1"
+    },
+    {
+      "lo_id": "LO-1.5.2",
+      "description": "List and recall the key objectives and organizational form of the Robot Framework Foundation",
+      "k_level": "K1"
+    },
+    {
+      "lo_id": "LO-1.5.3",
+      "description": "Recall the official webpages for Robot Framework and its resources",
+      "k_level": "K1"
+    }
+  ],
+  "k_level_distribution": {
+    "K1": 13,
+    "K2": 7,
+    "K3": 0,
+    "K4": 0
+  },
+  "question_type_distribution": {
+    "Type-A": 19,
+    "Roman": 1,
+    "Matching": 0,
+    "Pick-Two": 0
+  }
+}

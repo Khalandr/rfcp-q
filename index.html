@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Quiz Application</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            width: 100%;
+            max-width: 700px;
+            padding: 40px;
+            backdrop-filter: blur(10px);
+            animation: slideIn 0.5s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2em;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .upload-section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border: 2px dashed #667eea;
+            border-radius: 10px;
+            text-align: center;
+            background: rgba(102, 126, 234, 0.05);
+        }
+
+        .file-input-wrapper {
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+        }
+
+        .file-input-wrapper input[type=file] {
+            position: absolute;
+            left: -9999px;
+        }
+
+        .file-input-label {
+            display: inline-block;
+            padding: 12px 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            font-weight: 600;
+        }
+
+        .file-input-label:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .upload-info {
+            margin-top: 15px;
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        .file-format {
+            margin-top: 20px;
+            padding: 15px;
+            background: #f5f5f5;
+            border-radius: 10px;
+            text-align: left;
+        }
+
+        .file-format h3 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 0.95em;
+        }
+
+        .file-format pre {
+            background: white;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-size: 0.85em;
+            color: #444;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
+        .filter-section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            display: none;
+        }
+
+        .filter-section h3 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+
+        .filter-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .filter-group label {
+            color: #666;
+            font-size: 0.9em;
+            margin-bottom: 5px;
+        }
+
+        .filter-group select {
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background: white;
+            font-size: 0.95em;
+        }
+
+        .filter-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .filter-btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .apply-filter-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .clear-filter-btn {
+            background: #e0e0e0;
+            color: #666;
+        }
+
+        .filter-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .quiz-info {
+            background: #f0f4f8;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 20px;
+            display: none;
+        }
+
+        .quiz-info h3 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .quiz-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 10px;
+        }
+
+        .stat-item {
+            background: white;
+            padding: 10px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .stat-label {
+            font-size: 0.85em;
+            color: #666;
+        }
+
+        .stat-value {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #667eea;
+        }
+
+        .quiz-section {
+            display: none;
+        }
+
+        .question-container {
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateX(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .question-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-size: 0.85em;
+            color: #666;
+        }
+
+        .question {
+            font-size: 1.2em;
+            color: #333;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+
+        .question-number {
+            color: #667eea;
+            font-weight: 600;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .option {
+            padding: 15px 20px;
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .option:hover {
+            border-color: #667eea;
+            transform: translateX(5px);
+            box-shadow: 0 3px 10px rgba(102, 126, 234, 0.2);
+        }
+
+        .option.selected {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-color: transparent;
+        }
+
+        .option.correct {
+            background: linear-gradient(135deg, #4caf50 0%, #45a049 100%);
+            color: white;
+            border-color: transparent;
+            animation: pulse 0.5s ease;
+        }
+
+        .option.incorrect {
+            background: linear-gradient(135deg, #f44336 0%, #e53935 100%);
+            color: white;
+            border-color: transparent;
+            animation: shake 0.5s ease;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+            gap: 15px;
+        }
+
+        button {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            flex: 1;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .submit-btn:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .submit-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .next-btn {
+            background: linear-gradient(135deg, #4caf50 0%, #45a049 100%);
+            color: white;
+            display: none;
+        }
+
+        .next-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(76, 175, 80, 0.3);
+        }
+
+        .restart-btn {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ff5252 100%);
+            color: white;
+        }
+
+        .restart-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
+        }
+
+        .progress-bar {
+            height: 8px;
+            background: #e0e0e0;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            overflow: hidden;
+        }
+
+        .progress {
+            height: 100%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 10px;
+            transition: width 0.5s ease;
+        }
+
+        .score-display {
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 15px;
+            margin-bottom: 20px;
+        }
+
+        .score-display h2 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        .score-display p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .explanation {
+            margin-top: 20px;
+            padding: 15px;
+            background: #f0f0f0;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+            display: none;
+        }
+
+        .explanation.show {
+            display: block;
+            animation: slideDown 0.3s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                max-height: 0;
+            }
+            to {
+                opacity: 1;
+                max-height: 200px;
+            }
+        }
+
+        .error-message {
+            color: #f44336;
+            margin-top: 10px;
+            padding: 10px;
+            background: #ffebee;
+            border-radius: 5px;
+            display: none;
+        }
+
+        .error-message.show {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📚 Quiz Application</h1>
+        
+        <div class="upload-section" id="uploadSection">
+            <div class="file-input-wrapper">
+                <input type="file" id="fileInput" accept=".json" />
+                <label for="fileInput" class="file-input-label">Choose Quiz File</label>
+            </div>
+            <div class="upload-info">
+                Upload a JSON file with your quiz questions
+            </div>
+            <div class="error-message" id="uploadError"></div>
+            
+            <div class="file-format">
+                <h3>Expected JSON Format:</h3>
+                <pre>{
+  "questions": [
+    {
+      "question": "Your question text?",
+      "options": ["Option A", "Option B", "Option C", "Option D"],
+      "correct_answer": 0,
+      "explanation": "Optional explanation",
+      "chapter": "Optional chapter",
+      "k_level": "Optional K-level",
+      "topic": "Optional topic"
+    }
+  ]
+}</pre>
+            </div>
+        </div>
+
+        <div class="quiz-info" id="quizInfo">
+            <h3>Quiz Information</h3>
+            <div class="quiz-stats">
+                <div class="stat-item">
+                    <div class="stat-label">Total Questions</div>
+                    <div class="stat-value" id="totalQuestions">0</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">Filtered Questions</div>
+                    <div class="stat-value" id="filteredQuestions">0</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">Current Score</div>
+                    <div class="stat-value" id="currentScore">0</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="filter-section" id="filterSection">
+            <h3>Filter Questions</h3>
+            <div class="filter-grid">
+                <div class="filter-group">
+                    <label for="chapterFilter">Chapter</label>
+                    <select id="chapterFilter">
+                        <option value="">All Chapters</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="kLevelFilter">K-Level</label>
+                    <select id="kLevelFilter">
+                        <option value="">All K-Levels</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="topicFilter">Topic</label>
+                    <select id="topicFilter">
+                        <option value="">All Topics</option>
+                    </select>
+                </div>
+            </div>
+            <div class="filter-buttons">
+                <button class="filter-btn apply-filter-btn" onclick="applyFilters()">Apply Filters</button>
+                <button class="filter-btn clear-filter-btn" onclick="clearFilters()">Clear Filters</button>
+            </div>
+        </div>
+
+        <div class="quiz-section" id="quizSection">
+            <div class="progress-bar">
+                <div class="progress" id="progressBar"></div>
+            </div>
+            
+            <div class="score-display" id="scoreDisplay" style="display: none;">
+                <h2>Quiz Complete! 🎉</h2>
+                <p id="finalScore"></p>
+            </div>
+            
+            <div class="question-container" id="questionContainer">
+                <div class="question-meta" id="questionMeta"></div>
+                <div class="question" id="questionText"></div>
+                <div class="options" id="optionsContainer"></div>
+                <div class="explanation" id="explanation"></div>
+            </div>
+            
+            <div class="button-container">
+                <button class="submit-btn" id="submitBtn">Submit Answer</button>
+                <button class="next-btn" id="nextBtn">Next Question</button>
+                <button class="restart-btn" id="restartBtn" style="display: none;">Restart Quiz</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let allQuestions = [];
+        let filteredQuestions = [];
+        let currentQuestionIndex = 0;
+        let score = 0;
+        let selectedOption = null;
+        let answered = false;
+        let quizMetadata = {};
+
+        // File upload handling
+        document.getElementById('fileInput').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    try {
+                        const data = JSON.parse(event.target.result);
+                        if (validateQuizData(data)) {
+                            allQuestions = data.questions;
+                            filteredQuestions = [...allQuestions];
+                            quizMetadata = data.metadata || {};
+                            populateFilters();
+                            startQuiz();
+                        } else {
+                            showUploadError('Invalid quiz format. Please check the file structure.');
+                        }
+                    } catch (error) {
+                        showUploadError('Error parsing JSON file. Please ensure it\'s valid JSON.');
+                    }
+                };
+                reader.readAsText(file);
+            }
+        });
+
+        function validateQuizData(data) {
+            if (!data.questions || !Array.isArray(data.questions)) {
+                return false;
+            }
+            
+            for (let q of data.questions) {
+                if (!q.question || !q.options || !Array.isArray(q.options)) {
+                    return false;
+                }
+                // Check for either 'correct' or 'correct_answer' field
+                if (typeof q.correct !== 'number' && typeof q.correct_answer !== 'number') {
+                    return false;
+                }
+                // Normalize to use 'correct_answer'
+                if (typeof q.correct === 'number' && typeof q.correct_answer === 'undefined') {
+                    q.correct_answer = q.correct;
+                }
+                if (q.correct_answer < 0 || q.correct_answer >= q.options.length) {
+                    return false;
+                }
+            }
+            
+            return true;
+        }
+
+        function populateFilters() {
+            const chapters = [...new Set(allQuestions.map(q => q.chapter).filter(Boolean))];
+            const kLevels = [...new Set(allQuestions.map(q => q.k_level).filter(Boolean))];
+            const topics = [...new Set(allQuestions.map(q => q.topic).filter(Boolean))];
+
+            populateSelect('chapterFilter', chapters);
+            populateSelect('kLevelFilter', kLevels);
+            populateSelect('topicFilter', topics);
+
+            if (chapters.length > 0 || kLevels.length > 0 || topics.length > 0) {
+                document.getElementById('filterSection').style.display = 'block';
+            }
+        }
+
+        function populateSelect(selectId, options) {
+            const select = document.getElementById(selectId);
+            // Keep the first "All" option
+            select.innerHTML = select.innerHTML.split('</option>')[0] + '</option>';
+            
+            options.sort().forEach(option => {
+                const optionEl = document.createElement('option');
+                optionEl.value = option;
+                optionEl.textContent = option;
+                select.appendChild(optionEl);
+            });
+        }
+
+        function applyFilters() {
+            const chapterFilter = document.getElementById('chapterFilter').value;
+            const kLevelFilter = document.getElementById('kLevelFilter').value;
+            const topicFilter = document.getElementById('topicFilter').value;
+
+            filteredQuestions = allQuestions.filter(q => {
+                return (!chapterFilter || q.chapter === chapterFilter) &&
+                       (!kLevelFilter || q.k_level === kLevelFilter) &&
+                       (!topicFilter || q.topic === topicFilter);
+            });
+
+            if (filteredQuestions.length === 0) {
+                showUploadError('No questions match the selected filters.');
+                return;
+            }
+
+            currentQuestionIndex = 0;
+            score = 0;
+            updateStats();
+            loadQuestion();
+        }
+
+        function clearFilters() {
+            document.getElementById('chapterFilter').value = '';
+            document.getElementById('kLevelFilter').value = '';
+            document.getElementById('topicFilter').value = '';
+            filteredQuestions = [...allQuestions];
+            currentQuestionIndex = 0;
+            score = 0;
+            updateStats();
+            loadQuestion();
+        }
+
+        function showUploadError(message) {
+            const errorEl = document.getElementById('uploadError');
+            errorEl.textContent = message;
+            errorEl.classList.add('show');
+            setTimeout(() => {
+                errorEl.classList.remove('show');
+            }, 5000);
+        }
+
+        function startQuiz() {
+            document.getElementById('uploadSection').style.display = 'none';
+            document.getElementById('quizSection').style.display = 'block';
+            document.getElementById('quizInfo').style.display = 'block';
+            currentQuestionIndex = 0;
+            score = 0;
+            updateStats();
+            loadQuestion();
+        }
+
+        function updateStats() {
+            document.getElementById('totalQuestions').textContent = allQuestions.length;
+            document.getElementById('filteredQuestions').textContent = filteredQuestions.length;
+            document.getElementById('currentScore').textContent = score;
+        }
+
+        function loadQuestion() {
+            if (currentQuestionIndex >= filteredQuestions.length) {
+                showFinalScore();
+                return;
+            }
+
+            answered = false;
+            selectedOption = null;
+            
+            const question = filteredQuestions[currentQuestionIndex];
+            
+            // Display question metadata
+            const metaEl = document.getElementById('questionMeta');
+            let metaInfo = [];
+            if (question.chapter) metaInfo.push(`Chapter: ${question.chapter}`);
+            if (question.k_level) metaInfo.push(`K-Level: ${question.k_level}`);
+            if (question.topic) metaInfo.push(`Topic: ${question.topic}`);
+            metaEl.innerHTML = metaInfo.join(' | ');
+            
+            const questionText = document.getElementById('questionText');
+            questionText.innerHTML = `
+                <span class="question-number">Question ${currentQuestionIndex + 1} of ${filteredQuestions.length}</span>
+                ${question.question}
+            `;
+            
+            const optionsContainer = document.getElementById('optionsContainer');
+            optionsContainer.innerHTML = '';
+            
+            question.options.forEach((option, index) => {
+                const optionDiv = document.createElement('div');
+                optionDiv.className = 'option';
+                optionDiv.textContent = option;
+                optionDiv.onclick = () => selectOption(index);
+                optionsContainer.appendChild(optionDiv);
+            });
+            
+            document.getElementById('submitBtn').style.display = 'block';
+            document.getElementById('submitBtn').disabled = false;
+            document.getElementById('nextBtn').style.display = 'none';
+            document.getElementById('explanation').classList.remove('show');
+            
+            updateProgressBar();
+        }
+
+        function selectOption(index) {
+            if (answered) return;
+            
+            const options = document.querySelectorAll('.option');
+            options.forEach(opt => opt.classList.remove('selected'));
+            options[index].classList.add('selected');
+            selectedOption = index;
+        }
+
+        function submitAnswer() {
+            if (selectedOption === null || answered) return;
+            
+            answered = true;
+            const question = filteredQuestions[currentQuestionIndex];
+            const options = document.querySelectorAll('.option');
+            
+            if (selectedOption === question.correct_answer) {
+                options[selectedOption].classList.add('correct');
+                score++;
+                updateStats();
+            } else {
+                options[selectedOption].classList.add('incorrect');
+                options[question.correct_answer].classList.add('correct');
+            }
+            
+            if (question.explanation) {
+                const explanationEl = document.getElementById('explanation');
+                explanationEl.innerHTML = `<strong>Explanation:</strong> ${question.explanation}`;
+                explanationEl.classList.add('show');
+            }
+            
+            document.getElementById('submitBtn').style.display = 'none';
+            document.getElementById('nextBtn').style.display = 'block';
+        }
+
+        function nextQuestion() {
+            currentQuestionIndex++;
+            loadQuestion();
+        }
+
+        function showFinalScore() {
+            document.getElementById('questionContainer').style.display = 'none';
+            document.getElementById('scoreDisplay').style.display = 'block';
+            document.getElementById('finalScore').textContent = 
+                `You scored ${score} out of ${filteredQuestions.length} (${Math.round(score/filteredQuestions.length * 100)}%)`;
+            
+            document.getElementById('submitBtn').style.display = 'none';
+            document.getElementById('nextBtn').style.display = 'none';
+            document.getElementById('restartBtn').style.display = 'block';
+            
+            updateProgressBar();
+        }
+
+        function restartQuiz() {
+            document.getElementById('uploadSection').style.display = 'block';
+            document.getElementById('quizSection').style.display = 'none';
+            document.getElementById('quizInfo').style.display = 'none';
+            document.getElementById('filterSection').style.display = 'none';
+            document.getElementById('questionContainer').style.display = 'block';
+            document.getElementById('scoreDisplay').style.display = 'none';
+            document.getElementById('restartBtn').style.display = 'none';
+            document.getElementById('fileInput').value = '';
+            allQuestions = [];
+            filteredQuestions = [];
+            currentQuestionIndex = 0;
+            score = 0;
+        }
+
+        function updateProgressBar() {
+            const progress = ((currentQuestionIndex) / filteredQuestions.length) * 100;
+            document.getElementById('progressBar').style.width = progress + '%';
+        }
+
+        // Event listeners
+        document.getElementById('submitBtn').addEventListener('click', submitAnswer);
+        document.getElementById('nextBtn').addEventListener('click', nextQuestion);
+        document.getElementById('restartBtn').addEventListener('click', restartQuiz);
+    </script>
+</body>
+</html>
