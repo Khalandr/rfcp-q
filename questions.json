@@ -451,28 +451,596 @@
       "k_level": "K2",
       "chapter": "Chapter 1.5: Organization and Licensing",
       "topic": "Robot Framework Foundation activities",
-      "question_type": "Roman",
-      "question": "Which of the following statements about the Robot Framework Foundation are TRUE?",
-      "statements": [
-        "The foundation funds core development and maintenance of Robot Framework",
-        "The foundation operates under democratic principles with an elected Board of Directors",
-        "The foundation provides commercial training and certification programs",
-        "The foundation organizes RoboCon, the annual Robot Framework User Conference",
-        "The foundation is a for-profit organization that charges licensing fees"
-      ],
+      "question_type": "Type-A",
+      "question": "Which of the following statements about the Robot Framework Foundation is FALSE?",
       "options": [
-        "i, ii, and iv",
-        "i, ii, and iii",
-        "ii, iii, and v",
-        "i, iii, and v"
+        "It organizes RoboCon, the annual user conference.",
+        "It provides commercial training and certification programs.",
+        "It operates under democratic principles with an elected Board of Directors.",
+        "It funds the core development and maintenance of the framework."
+      ],
+      "correct_answer": 1,
+      "explanation": "The Robot Framework Foundation is a non-profit organization focused on supporting the open-source community. It does not provide commercial services like training or certifications. Its key activities include funding core development, democratic governance, and organizing community events like RoboCon.",
+      "option_explanations": {
+        "0": "Incorrect - This statement is true. Organizing RoboCon is a key community support activity of the foundation.",
+        "1": "Correct - This statement is false. The foundation is non-profit and does not provide commercial training or certification services.",
+        "2": "Incorrect - This statement is true. The foundation is governed by a democratically elected board.",
+        "3": "Incorrect - This statement is true. Supporting core development is a primary objective of the foundation."
+      }
+    },
+    {
+      "id": 21,
+      "learning_objective": "LO-1.1.1",
+      "k_level": "K2",
+      "chapter": "Chapter 1.1: Purpose and Use Cases",
+      "topic": "Test levels Robot Framework is used for",
+      "question_type": "Type-A",
+      "question": "What is the primary focus of System Integration Testing when using Robot Framework?",
+      "options": [
+        "To verify the behavior of individual, isolated components.",
+        "To test the interaction and communication between the system under test and external services.",
+        "To confirm that the system is ready for deployment from an end-user's perspective.",
+        "To simulate user interactions with the live system to detect performance issues."
+      ],
+      "correct_answer": 1,
+      "explanation": "System Integration Testing focuses on the interaction between the system under test and external services, as well as on the integration of multiple systems into a larger system, ensuring that all integrated components communicate and function together as expected.",
+      "option_explanations": {
+        "0": "Incorrect - This describes component testing.",
+        "1": "Correct - This is the definition of System Integration Testing.",
+        "2": "Incorrect - This describes Acceptance Testing.",
+        "3": "Incorrect - This describes Synthetic Monitoring."
+      }
+    },
+    {
+      "id": 22,
+      "learning_objective": "LO-1.1.1",
+      "k_level": "K1",
+      "chapter": "Chapter 1.1: Purpose and Use Cases",
+      "topic": "Test levels Robot Framework is used for",
+      "question_type": "Type-A",
+      "question": "Which of the following best describes End-to-End Testing?",
+      "options": [
+        "Testing individual functions or methods within the code.",
+        "Verifying that a complete workflow operates as intended across all interconnected subsystems.",
+        "Validating that the system meets business requirements for a single feature.",
+        "Checking the system's performance under heavy load."
+      ],
+      "correct_answer": 1,
+      "explanation": "End-to-End Testing verifies that a complete workflow or process within the system operates as intended, covering all interconnected subsystems, interfaces, and external components.",
+       "option_explanations": {
+        "0": "Incorrect - This is a description of unit testing.",
+        "1": "Correct - This is the definition of End-to-End Testing.",
+        "2": "Incorrect - This is more aligned with Acceptance Testing, but focused on a single feature.",
+        "3": "Incorrect - This describes performance testing."
+      }
+    },
+    {
+      "id": 23,
+      "learning_objective": "LO-1.1.1",
+      "k_level": "K2",
+      "chapter": "Chapter 1.1: Purpose and Use Cases",
+      "topic": "Test levels Robot Framework is used for",
+      "question_type": "Type-A",
+      "question": "Why is Robot Framework NOT typically recommended for component testing?",
+      "options": [
+        "It is not possible to write component tests with Robot Framework.",
+        "Component testing requires low-level, granular tests that are better handled by unit testing frameworks like pytest.",
+        "Robot Framework is too slow for the rapid feedback needed in component testing.",
+        "Component testing can only be performed with compiled languages."
+      ],
+      "correct_answer": 1,
+      "explanation": "Robot Framework's strength lies in higher-level testing. Component testing requires low-level tests that often involve direct interaction with the codebase, which is better suited for frameworks like JUnit or pytest.",
+       "option_explanations": {
+        "0": "Incorrect - While not ideal, it is technically possible to write component tests with Robot Framework.",
+        "1": "Correct - This is the primary reason why other frameworks are preferred for component testing.",
+        "2": "Incorrect - While speed can be a factor, the primary reason is the level of abstraction.",
+        "3": "Incorrect - Component testing can be performed with any language."
+      }
+    },
+    {
+      "id": 24,
+      "learning_objective": "LO-1.1",
+      "k_level": "K1",
+      "chapter": "Chapter 1.1: Purpose and Use Cases",
+      "topic": "Main use cases of Robot Framework",
+      "question_type": "Type-A",
+      "question": "Which of the following is a common use case of Robotic Process Automation (RPA) with Robot Framework?",
+      "options": [
+        "Developing new software applications from scratch.",
+        "Performing exploratory testing to find unknown bugs.",
+        "Automating data extraction and manipulation between different systems.",
+        "Writing and executing complex database queries."
+      ],
+      "correct_answer": 2,
+      "explanation": "A common use case for RPA with Robot Framework is automating data transfers and processing between systems, also known as data extraction and manipulation.",
+      "option_explanations": {
+        "0": "Incorrect - RPA is for automating existing processes, not developing new applications.",
+        "1": "Incorrect - This describes a manual testing technique.",
+        "2": "Correct - This is a key use case for RPA.",
+        "3": "Incorrect - While Robot Framework can interact with databases, this is a specific task and not a general use case for RPA."
+      }
+    },
+    {
+      "id": 25,
+      "learning_objective": "LO-1.1.1",
+      "k_level": "K1",
+      "chapter": "Chapter 1.1: Purpose and Use Cases",
+      "topic": "Test levels Robot Framework is used for",
+      "question_type": "Type-A",
+      "question": "What is the main purpose of Synthetic Monitoring?",
+      "options": [
+        "To replace all other forms of testing.",
+        "To proactively simulate user interactions with a live system to detect issues before users are affected.",
+        "To gather feedback from real users about their experience.",
+        "To test the system's security vulnerabilities."
+      ],
+      "correct_answer": 1,
+      "explanation": "Synthetic Monitoring, also known as Active or Proactive Monitoring, simulates user interactions with live systems at regular intervals to detect performance issues or downtime early, with the goal of detecting such failures before they affect actual users.",
+      "option_explanations": {
+        "0": "Incorrect - Synthetic Monitoring is a specific type of monitoring and does not replace other testing.",
+        "1": "Correct - This is the definition of Synthetic Monitoring.",
+        "2": "Incorrect - This describes a different type of monitoring, often called Real User Monitoring (RUM).",
+        "3": "Incorrect - While monitoring can help detect security issues, this is not the primary purpose of Synthetic Monitoring."
+      }
+    },
+    {
+      "id": 26,
+      "learning_objective": "LO-1.2.1",
+      "k_level": "K2",
+      "chapter": "Chapter 1.2: Architecture of Robot Framework",
+      "topic": "Generic Test Automation Architecture layers",
+      "question_type": "Type-A",
+      "question": "Which of the following components would NOT be considered part of the Adaptation Layer in the gTAA?",
+      "options": [
+        "A keyword library for interacting with a REST API.",
+        "A resource file containing user-defined keywords.",
+        "A library for automating mobile application gestures.",
+        "A custom Python library for database connections."
+      ],
+      "correct_answer": 1,
+      "explanation": "The Adaptation Layer connects Robot Framework to the system under test via keyword libraries. Resource files, which contain user keywords written in Robot Framework syntax, are part of the Definition Layer.",
+      "option_explanations": {
+        "0": "Incorrect - A library for REST API interaction is a classic example of an Adaptation Layer component, as it adapts Robot Framework to an external service.",
+        "1": "Correct - Resource files contain test data and user keywords, placing them in the Definition Layer, not the Adaptation Layer.",
+        "2": "Incorrect - A mobile automation library is part of the Adaptation Layer as it provides the bridge to the mobile application technology.",
+        "3": "Incorrect - A custom Python library for database connections is part of the Adaptation Layer, as it allows Robot Framework to interact with a database system."
+      }
+    },
+    {
+      "id": 27,
+      "learning_objective": "LO-1.2.2",
+      "k_level": "K2",
+      "chapter": "Chapter 1.2: Architecture of Robot Framework",
+      "topic": "What Robot Framework includes and excludes",
+      "question_type": "Type-A",
+      "question": "A team is setting up a new automation project using Robot Framework. Which of the following tools or components must they acquire EXTERNALLY, as it is not included with the core Robot Framework installation?",
+      "options": [
+        "A mechanism for generating HTML logs and reports.",
+        "A standard library for string manipulation and file operations.",
+        "A library for web browser automation, such as SeleniumLibrary.",
+        "A parser to read and interpret the Robot Framework syntax."
+      ],
+      "correct_answer": 2,
+      "explanation": "Robot Framework's core focuses on test execution and reporting. It does not include keyword libraries for specific technologies like web automation; these must be installed separately.",
+      "option_explanations": {
+        "0": "Incorrect - The result generation mechanism for logs and reports is a core feature included with Robot Framework.",
+        "1": "Incorrect - Robot Framework comes with a collection of generic standard libraries, including libraries for string manipulation and file handling.",
+        "2": "Correct - Libraries for specific technologies, like web front-end automation (e.g., SeleniumLibrary), are external and must be installed separately.",
+        "3": "Incorrect - A parser to read test data is a fundamental part of the Robot Framework execution engine."
+      }
+    },
+    {
+      "id": 28,
+      "learning_objective": "LO-1.2.1",
+      "k_level": "K2",
+      "chapter": "Chapter 1.2: Architecture of Robot Framework",
+      "topic": "Generic Test Automation Architecture layers",
+      "question_type": "Type-A",
+      "question": "In the context of the gTAA, where does the core logic of Robot Framework, which parses test data and executes keywords, reside?",
+      "options": [
+        "The Definition Layer",
+        "The Execution Layer",
+        "The Adaptation Layer",
+        "The Infrastructure Layer"
+      ],
+      "correct_answer": 1,
+      "explanation": "The Execution Layer consists of the framework itself, including its core components and APIs. It is responsible for parsing test data, building an execution model, and processing it to execute keywords.",
+      "option_explanations": {
+        "0": "Incorrect - The Definition Layer contains the test data (test cases, tasks, resource files), not the execution logic.",
+        "1": "Correct - The Execution Layer is where the framework's core processing and execution engine is located.",
+        "2": "Incorrect - The Adaptation Layer contains the keyword libraries that connect the framework to the system under test.",
+        "3": "Incorrect - While editors and IDEs can be categorized into these layers, the Infrastructure Layer is not a standard gTAA layer in this context."
+      }
+    },
+    {
+      "id": 29,
+      "learning_objective": "LO-1.2.3",
+      "k_level": "K1",
+      "chapter": "Chapter 1.2: Architecture of Robot Framework",
+      "topic": "Technology and prerequisites",
+      "question_type": "Type-A",
+      "question": "Which statement about the technological foundation of Robot Framework is CORRECT?",
+      "options": [
+        "Robot Framework is built on Java and requires a JVM to run.",
+        "Robot Framework has no external dependencies and can run without an interpreter.",
+        "Robot Framework is built on Python and can be extended with libraries written in other languages.",
+        "Robot Framework requires a specific commercial IDE for development and execution."
+      ],
+      "correct_answer": 2,
+      "explanation": "Robot Framework is built on Python and requires a Python interpreter. Its architecture allows it to be extended with libraries written in other languages like Java.",
+      "option_explanations": {
+        "0": "Incorrect - Robot Framework is built on Python, not Java, although it can use Java libraries.",
+        "1": "Incorrect - Robot Framework requires a Python interpreter to run.",
+        "2": "Correct - Robot Framework is built on Python, and its extensibility allows for libraries written in other programming languages.",
+        "3": "Incorrect - Robot Framework does not require any specific IDE and is independent of code editors."
+      }
+    },
+    {
+      "id": 30,
+      "learning_objective": "LO-1.2.2",
+      "k_level": "K2",
+      "chapter": "Chapter 1.2: Architecture of Robot Framework",
+      "topic": "What Robot Framework includes and excludes",
+      "question_type": "Type-A",
+      "question": "Which of the following functionalities is included as part of the core Robot Framework installation?",
+      "options": [
+        "A library for web front-end automation",
+        "A tool for CI/CD integration",
+        "A mechanism to generate execution logs and reports",
+        "A library for mobile automation"
+      ],
+      "correct_answer": 2,
+      "explanation": "Robot Framework's core includes a result generation mechanism for logs and reports. Libraries for specific technologies (like web or mobile automation) and tools for CI/CD are external and must be installed separately.",
+      "option_explanations": {
+        "0": "Incorrect - Web front-end automation libraries (e.g., SeleniumLibrary) are external libraries, not part of the core framework.",
+        "1": "Incorrect - CI/CD integration tools are external and are used to run Robot Framework, but are not part of the framework itself.",
+        "2": "Correct - A result generation mechanism to provide logs and reports is a core feature included with every Robot Framework installation.",
+        "3": "Incorrect - Mobile automation libraries (e.g., AppiumLibrary) are external and must be added separately."
+      }
+    },
+    {
+      "id": 31,
+      "learning_objective": "LO-1.3",
+      "k_level": "K2",
+      "chapter": "Chapter 1.3: Basic Syntax and Structure",
+      "topic": "Key attributes of Robot Framework syntax",
+      "question_type": "Type-A",
+      "question": "Which of the following statements about Robot Framework's syntax is FALSE?",
+      "options": [
+        "Keyword and variable names are mostly case-insensitive.",
+        "Code blocks, such as the body of a keyword, are defined by indentation.",
+        "A single space is not a valid separator between keywords and arguments.",
+        "Unquoted text is treated as a string by default."
+      ],
+      "correct_answer": 2,
+      "explanation": "Robot Framework's syntax is designed for readability. While four spaces are recommended as the primary separator, a single space is still a valid character and does not inherently act as a separator unless there are two or more consecutive spaces.",
+      "option_explanations": {
+        "0": "Incorrect - This statement is true; most elements are case-insensitive to improve readability.",
+        "1": "Incorrect - This statement is true; indentation is fundamental to defining the structure of tests, tasks, and keywords.",
+        "2": "Correct - This statement is false. Two or more spaces are the primary separator, but single spaces are valid characters within elements.",
+        "3": "Incorrect - This statement is true; unlike many programming languages, strings do not always require quotes."
+      }
+    },
+    {
+      "id": 32,
+      "learning_objective": "LO-1.3.3",
+      "k_level": "K2",
+      "chapter": "Chapter 1.3: Basic Syntax and Structure",
+      "topic": "Difference between User Keywords and Library Keywords",
+      "question_type": "Type-A",
+      "question": "A test automator creates a new keyword called `Login And Verify Dashboard` that first calls the library keyword `Input Text` for the username, then `Input Text` for the password, `Click Button` for the login button, and finally a `Verify Element` keyword. What type of keyword is `Login And Verify Dashboard`?",
+      "options": [
+        "A Library Keyword, because it interacts with the system under test.",
+        "A User Keyword, because it is composed of calls to other keywords.",
+        "An Atomic Keyword, because it performs a single logical action.",
+        "A Business Keyword, which is a type of Library Keyword."
+      ],
+      "correct_answer": 1,
+      "explanation": "User Keywords (also known as higher-level keywords) are written in Robot Framework syntax and are used to structure tests by composing sequences of other user or library keywords. Library keywords are the low-level keywords that directly interact with the system.",
+      "option_explanations": {
+        "0": "Incorrect - Although the sequence of actions interacts with the SUT, the keyword itself is an abstraction layer written in Robot syntax, making it a User Keyword.",
+        "1": "Correct - This keyword is a composition of other keywords to create a higher-level, more readable action, which is the definition of a User Keyword.",
+        "2": "Incorrect - Atomic Keywords are typically low-level Library Keywords. This keyword is composite, not atomic.",
+        "3": "Incorrect - Business Keyword is another name for a User Keyword, not a type of Library Keyword."
+      }
+    },
+    {
+      "id": 33,
+      "learning_objective": "LO-1.3.4",
+      "k_level": "K2",
+      "chapter": "Chapter 1.3: Basic Syntax and Structure",
+      "topic": "Difference between Resource Files and Libraries",
+      "question_type": "Type-A",
+      "question": "A team wants to share a set of common, low-level functionalities for interacting with a proprietary hardware device across multiple test suites. These functionalities are implemented in Python. Where should these functionalities be packaged?",
+      "options": [
+        "In a .robot file within the test suite directory.",
+        "In a Keyword Library.",
+        "In a Resource File.",
+        "Directly within the *** Settings *** section of each test suite."
+      ],
+      "correct_answer": 1,
+      "explanation": "Low-level keywords implemented in programming languages like Python are packaged into Keyword Libraries. These libraries form the Adaptation Layer, providing the bridge between Robot Framework and the system under test.",
+      "option_explanations": {
+        "0": "Incorrect - A .robot file is for test cases or tasks, not for packaging Python code.",
+        "1": "Correct - Keyword Libraries are the correct mechanism for organizing and distributing low-level keywords written in Python.",
+        "2": "Incorrect - Resource Files are used for organizing User Keywords (written in Robot syntax) and variables, not for packaging Python code.",
+        "3": "Incorrect - While you can import libraries in the Settings section, the implementation itself resides in a Keyword Library, not in the settings."
+      }
+    },
+    {
+      "id": 34,
+      "learning_objective": "LO-1.3.2",
+      "k_level": "K1",
+      "chapter": "Chapter 1.3: Basic Syntax and Structure",
+      "topic": "Files & Directories",
+      "question_type": "Type-A",
+      "question": "In Robot Framework's file structure, what constitutes a test suite?",
+      "options": [
+        "Only a directory containing at least one .robot file.",
+        "Only a .robot file that contains a *** Test Cases *** or *** Tasks *** section.",
+        "Any .py file that is imported as a library.",
+        "Both a .robot file containing tests/tasks and any directory containing such a file."
+      ],
+      "correct_answer": 3,
+      "explanation": "Robot Framework treats both individual .robot files (that contain tests or tasks) and directories that contain such files as test suites. This allows for a hierarchical organization of tests.",
+      "option_explanations": {
+        "0": "Incorrect - This is only partially correct; individual .robot files can also be suites.",
+        "1": "Incorrect - This is only partially correct; directories can also be suites.",
+        "2": "Incorrect - A .py file is a library, not a test suite.",
+        "3": "Correct - This accurately describes the dual nature of how Robot Framework defines a test suite through its file and directory structure."
+      }
+    },
+    {
+      "id": 35,
+      "learning_objective": "LO-1.3.3",
+      "k_level": "K2",
+      "chapter": "Chapter 1.3: Basic Syntax and Structure",
+      "topic": "Difference between User Keywords and Library Keywords",
+      "question_type": "Type-A",
+      "question": "Which of the following characteristics is unique to Library Keywords when compared to User Keywords?",
+      "options": [
+        "They can accept arguments.",
+        "They are logged in the final execution report.",
+        "They are typically implemented in a programming language like Python.",
+        "They can be reused across multiple test cases."
+      ],
+      "correct_answer": 2,
+      "explanation": "The key differentiator is that Library Keywords contain the implementation code (e.g., in Python) that directly interacts with systems, whereas User Keywords are compositions of other keywords written in Robot Framework syntax.",
+      "option_explanations": {
+        "0": "Incorrect - Both User Keywords and Library Keywords can accept arguments.",
+        "1": "Incorrect - All executed keywords, both User and Library, are logged in the report.",
+        "2": "Correct - This is the defining characteristic. Library keywords contain the low-level implementation, typically in a language like Python, while User Keywords do not.",
+        "3": "Incorrect - Both keyword types are designed to be reusable."
+      }
+    },
+    {
+      "id": 36,
+      "learning_objective": "LO-1.4",
+      "k_level": "K2",
+      "chapter": "Chapter 1.4: Specification Styles",
+      "topic": "Three specification styles",
+      "question_type": "Type-A",
+      "question": "A team is writing acceptance tests that must be easily understood by business stakeholders. They are also writing more technical, system-level tests. Which combination of specification styles would be most appropriate?",
+      "options": [
+        "Use only Behavior-Driven style for all tests to ensure consistency.",
+        "Use Behavior-Driven style for acceptance tests and Keyword-Driven style for system-level tests.",
+        "Use only Keyword-Driven style for all tests to maintain a clear, imperative structure.",
+        "Use Data-Driven style for acceptance tests and Behavior-Driven style for system-level tests."
+      ],
+      "correct_answer": 1,
+      "explanation": "Behavior-Driven style is declarative and user-focused, making it ideal for acceptance tests shared with non-technical stakeholders. Keyword-Driven style is imperative and action-centric, which is better suited for detailed, technical system-level tests.",
+      "option_explanations": {
+        "0": "Incorrect - While consistent, using only BDD may be less efficient for highly technical tests where a clear, imperative flow is more important than business readability.",
+        "1": "Correct - This approach leverages the strengths of both styles for their intended purposes: BDD for business-facing tests and KDT for technical tests.",
+        "2": "Incorrect - Using only KDT may make the acceptance tests less accessible and understandable for business stakeholders.",
+        "3": "Incorrect - Data-Driven is a method for handling data, not a primary style for structuring test logic. BDD is also generally less suitable for complex technical tests compared to KDT."
+      }
+    },
+    {
+      "id": 37,
+      "learning_objective": "LO-1.4.3",
+      "k_level": "K2",
+      "chapter": "Chapter 1.4: Specification Styles",
+      "topic": "Differences between Keyword-Driven and Behavior-Driven",
+      "question_type": "Type-A",
+      "question": "Which of the following statements best describes a key difference in how Robot Framework handles Behavior-Driven specifications compared to other Gherkin-based tools like Cucumber?",
+      "options": [
+        "Robot Framework does not recognize Given/When/Then prefixes.",
+        "Robot Framework requires step definitions to be written in Java.",
+        "Robot Framework allows for multiple layers of user keywords, offering more detailed logging.",
+        "Robot Framework's Behavior-Driven style cannot have embedded arguments."
+      ],
+      "correct_answer": 2,
+      "explanation": "A key advantage of Robot Framework is its ability to use user keywords that can call other keywords, creating multiple layers of abstraction and providing highly detailed logs. In contrast, tools like Cucumber map a Gherkin step directly to a single code implementation (step definition).",
+      "option_explanations": {
+        "0": "Incorrect - Robot Framework does recognize and ignore these prefixes to find the matching keyword.",
+        "1": "Incorrect - Robot Framework is built on Python, and its libraries are typically written in Python, not Java.",
+        "2": "Correct - Unlike other BDD frameworks where a step maps to a single step definition, Robot Framework allows user keywords to call other keywords, creating deeper, more detailed execution logs.",
+        "3": "Incorrect - The Behavior-Driven style in Robot Framework supports embedded arguments within the keyword steps."
+      }
+    },
+    {
+      "id": 38,
+      "learning_objective": "LO-1.4.4",
+      "k_level": "K1",
+      "chapter": "Chapter 1.4: Specification Styles",
+      "topic": "Purpose of Data-Driven Specification",
+      "question_type": "Type-A",
+      "question": "For which of the following scenarios would a Data-Driven Specification using a Test Template be the MOST effective approach?",
+      "options": [
+        "A single, complex RPA task that retrieves dynamic data from a live production system.",
+        "A set of UI tests where each test case follows a completely different user workflow.",
+        "An API test that needs to verify a single endpoint's response with hundreds of different input data combinations.",
+        "A one-time setup script that installs and configures a test environment."
+      ],
+      "correct_answer": 2,
+      "explanation": "Data-Driven Specification excels when the same test logic or sequence of actions needs to be executed repeatedly with different sets of input/output data. This avoids duplicating the test logic.",
+      "option_explanations": {
+        "0": "Incorrect - RPA tasks with dynamic data from external sources are generally not a primary use case for static Data-Driven specifications in suite files.",
+        "1": "Incorrect - If each workflow is different, a template cannot be reused, making the data-driven approach unsuitable.",
+        "2": "Correct - This is a classic use case for Data-Driven testing, as the same workflow (calling the endpoint) is repeated with many data variations.",
+        "3": "Incorrect - A setup script is typically a linear, one-off process, not a repetitive test that benefits from varying data inputs."
+      }
+    },
+    {
+      "id": 39,
+      "learning_objective": "LO-1.4.1",
+      "k_level": "K2",
+      "chapter": "Chapter 1.4: Specification Styles",
+      "topic": "Keyword-Driven Specification concepts",
+      "question_type": "Type-A",
+      "question": "Which of the following is NOT a primary characteristic of the Keyword-Driven specification style?",
+      "options": [
+        "It is an imperative style, specifying the exact actions to perform in order.",
+        "It emphasizes describing the system's behavior from the user's perspective.",
+        "It provides a clear and structured representation of the task flow.",
+        "It enables a clear separation between the keyword name and its arguments."
+      ],
+      "correct_answer": 1,
+      "explanation": "Keyword-Driven style is action-centric and imperative, focusing on 'what to do'. Describing system behavior from a user's perspective is the primary characteristic of the declarative Behavior-Driven style.",
+      "option_explanations": {
+        "0": "Incorrect - This is a core characteristic of KDT; it's a procedural, step-by-step specification.",
+        "1": "Correct - This is the main focus of the Behavior-Driven style, not the Keyword-Driven style.",
+        "2": "Incorrect - The structured, procedural nature of KDT makes the task flow clear and easy to follow.",
+        "3": "Incorrect - Separating keywords and arguments with spaces improves readability and is a key feature of the Keyword-Driven style in Robot Framework."
+      }
+    },
+    {
+      "id": 40,
+      "learning_objective": "LO-1.4.3",
+      "k_level": "K2",
+      "chapter": "Chapter 1.4: Specification Styles",
+      "topic": "Differences between Keyword-Driven and Behavior-Driven",
+      "question_type": "Type-A",
+      "question": "An automator is writing a test case with many complex steps and numerous data arguments for each step. Which specification style would likely be more suitable and maintainable in this scenario, and why?",
+      "options": [
+        "Behavior-Driven, because its natural language syntax makes complex steps easier to read.",
+        "Keyword-Driven, because it provides a clearer separation between action keywords and their arguments, which improves readability with complex data.",
+        "Behavior-Driven, because embedding arguments into the step sentence simplifies the test case.",
+        "Keyword-Driven, because it is the only style that supports complex data types."
+      ],
+      "correct_answer": 1,
+      "explanation": "The Keyword-Driven style is better suited for complex tasks or handling complex data, as it enables a clear separation between keyword names and their argument values. In contrast, the Behavior-Driven style can become less understandable when the number of steps or the amount of data in the steps increases.",
+      "option_explanations": {
+        "0": "Incorrect - With many complex steps and arguments, the natural language sentences of BDD can become long, convoluted, and hard to maintain.",
+        "1": "Correct - The explicit separation of keyword and arguments in KDT makes it more readable and maintainable when dealing with many steps or complex data.",
+        "2": "Incorrect - Embedding a large number of arguments into a BDD step sentence would likely make it less simple and harder to read.",
+        "3": "Incorrect - Both styles can handle complex data types; the difference lies in the clarity and maintainability of the presentation."
+      }
+    },
+    {
+      "id": 41,
+      "learning_objective": "LO-1.5.1",
+      "k_level": "K2",
+      "chapter": "Chapter 1.5: Organization and Licensing",
+      "topic": "Apache License characteristics",
+      "question_type": "Type-A",
+      "question": "A company modifies the Robot Framework core to add a proprietary feature and distributes this new version commercially to its clients. According to the Apache License 2.0, what is the company's primary obligation?",
+      "options": [
+        "They must make the source code of their modifications publicly available.",
+        "They are prohibited from charging money for this modified version.",
+        "They must keep the original authorship and any change notices visible.",
+        "They must submit their modifications back to the Robot Framework Foundation for approval."
+      ],
+      "correct_answer": 2,
+      "explanation": "The Apache License 2.0 is permissive, allowing for commercial use and modification. Its main requirement is attribution, meaning users must keep the original authorship and any change notices intact, ensuring transparency about the original source and modifications.",
+      "option_explanations": {
+        "0": "Incorrect - The Apache License 2.0 is not a copyleft license; it does not require derivative works to be open-sourced.",
+        "1": "Incorrect - The license explicitly allows for commercial use and distribution of modified versions.",
+        "2": "Correct - The license requires that original authorship and change notices are maintained, ensuring attribution.",
+        "3": "Incorrect - There is no obligation to submit changes back to the foundation; modifications can remain private or proprietary."
+      }
+    },
+    {
+      "id": 42,
+      "learning_objective": "LO-1.5.2",
+      "k_level": "K2",
+      "chapter": "Chapter 1.5: Organization and Licensing",
+      "topic": "Robot Framework Foundation key objectives",
+      "question_type": "Type-A",
+      "question": "Which of the following activities is NOT a direct responsibility or key objective of the Robot Framework Foundation?",
+      "options": [
+        "Providing paid, official certification exams for Robot Framework developers.",
+        "Organizing the annual RoboCon user conference to support the community.",
+        "Funding the core development and maintenance to ensure the framework remains free.",
+        "Maintaining the official GitHub repositories and the robotframework.org website."
       ],
       "correct_answer": 0,
-      "explanation": "The Robot Framework Foundation funds development (i), operates democratically (ii), and organizes RoboCon (iv). It does not provide commercial services (iii) and is non-profit (v).",
+      "explanation": "The Robot Framework Foundation is a non-profit organization focused on supporting the open-source framework and its community. It does not provide commercial services like paid training or official certifications.",
       "option_explanations": {
-        "0": "Correct - Statements i (funding development), ii (democratic governance), and iv (organizing RoboCon) are all true about the foundation.",
-        "1": "Incorrect - Statement iii is false; the foundation does not provide commercial training programs.",
-        "2": "Incorrect - Statement v is false; the foundation is non-profit and does not charge licensing fees.",
-        "3": "Incorrect - Statements iii and v are both false; the foundation is non-profit and doesn't provide commercial services."
+        "0": "Correct - The foundation is non-profit and does not engage in commercial activities like offering paid certifications.",
+        "1": "Incorrect - Organizing community events like RoboCon is a key objective of the foundation.",
+        "2": "Incorrect - Supporting core development is one of the primary missions of the foundation.",
+        "3": "Incorrect - The foundation is responsible for maintaining key infrastructure and official platforms."
+      }
+    },
+    {
+      "id": 43,
+      "learning_objective": "LO-1.5.2",
+      "k_level": "K1",
+      "chapter": "Chapter 1.5: Organization and Licensing",
+      "topic": "Robot Framework Foundation organizational form",
+      "question_type": "Type-A",
+      "question": "How is the Robot Framework Foundation primarily funded and governed?",
+      "options": [
+        "Through government grants and a board appointed by the Finnish government.",
+        "Through licensing fees charged for commercial use of Robot Framework.",
+        "Through membership fees from companies and a democratically elected Board of Directors.",
+        "Through individual donations and a single, permanent lead developer."
+      ],
+      "correct_answer": 2,
+      "explanation": "The foundation's operations are funded by membership fees from companies, and it is governed democratically by a Board of Directors elected annually by its members.",
+      "option_explanations": {
+        "0": "Incorrect - The foundation is an independent non-profit, not a government entity.",
+        "1": "Incorrect - Robot Framework is free to use under the Apache 2.0 license and has no licensing fees.",
+        "2": "Correct - The foundation model is based on corporate memberships for funding and democratic governance through an elected board.",
+        "3": "Incorrect - While individual contributions may occur, the primary funding is from corporate members, and governance is democratic, not led by a single person."
+      }
+    },
+    {
+      "id": 44,
+      "learning_objective": "LO-1.5.3",
+      "k_level": "K1",
+      "chapter": "Chapter 1.5: Organization and Licensing",
+      "topic": "Official Robot Framework webpages",
+      "question_type": "Type-A",
+      "question": "A developer is looking for the official source code of the core Robot Framework project to inspect its implementation. Which URL should they visit?",
+      "options": [
+        "robotframework.org/source",
+        "pypi.org/project/robotframework",
+        "github.com/robotframework",
+        "robot-foundation.com/code"
+      ],
+      "correct_answer": 2,
+      "explanation": "The official repository for the framework's source code and its other related components is hosted on GitHub under the 'robotframework' organization.",
+      "option_explanations": {
+        "0": "Incorrect - This is not a valid URL for the source code.",
+        "1": "Incorrect - PyPI is the package installer for Python, used for installation, but it is not the source code repository itself.",
+        "2": "Correct - This is the official GitHub organization hosting the source code for Robot Framework and its ecosystem.",
+        "3": "Incorrect - This is not an official Robot Framework or Foundation website."
+      }
+    },
+    {
+      "id": 45,
+      "learning_objective": "LO-1.5.1",
+      "k_level": "K2",
+      "chapter": "Chapter 1.5: Organization and Licensing",
+      "topic": "Apache License characteristics",
+      "question_type": "Type-A",
+      "question": "Under the terms of the Apache License 2.0, which of the following is explicitly stated as NOT being provided with the software?",
+      "options": [
+        "The right to use the software for commercial purposes.",
+        "A grant of patent rights from contributors.",
+        "A warranty or guarantee of performance.",
+        "The right to modify the source code."
+      ],
+      "correct_answer": 2,
+      "explanation": "The Apache License 2.0 states that the software is provided 'as-is,' without any warranties or guarantees. This means users accept the software as it is, and the authors are not liable for any issues that may arise from its use.",
+      "option_explanations": {
+        "0": "Incorrect - The license explicitly allows for commercial use.",
+        "1": "Incorrect - The license includes a patent grant clause, protecting users from patent claims by contributors.",
+        "2": "Correct - The license includes a 'Disclaimer of Warranty' section, stating the software is provided without warranty of any kind.",
+        "3": "Incorrect - The license explicitly allows for the modification of the source code."
       }
     }
   ],
