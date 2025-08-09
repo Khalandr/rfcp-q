@@ -548,7 +548,8 @@
             <div class="button-container">
                 <button class="submit-btn" id="submitBtn">Submit Answer</button>
                 <button class="next-btn" id="nextBtn">Next Question</button>
-                <button class="restart-btn" id="restartBtn" style="display: none;">Restart Quiz</button>
+                <button class="restart-btn" id="retakeBtn" style="display: none;">Retake Quiz</button>
+                <button class="restart-btn" id="restartBtn" style="display: none;">Upload New Questions</button>
             </div>
         </div>
     </div>
@@ -784,14 +785,23 @@
         function showFinalScore() {
             document.getElementById('questionContainer').style.display = 'none';
             document.getElementById('scoreDisplay').style.display = 'block';
-            document.getElementById('finalScore').textContent = 
+            document.getElementById('finalScore').textContent =
                 `You scored ${score} out of ${filteredQuestions.length} (${Math.round(score/filteredQuestions.length * 100)}%)`;
-            
+
             document.getElementById('submitBtn').style.display = 'none';
             document.getElementById('nextBtn').style.display = 'none';
             document.getElementById('restartBtn').style.display = 'block';
-            
+            document.getElementById('retakeBtn').style.display = 'block';
+
             updateProgressBar();
+        }
+
+        function retakeQuiz() {
+            document.getElementById('scoreDisplay').style.display = 'none';
+            document.getElementById('questionContainer').style.display = 'block';
+            document.getElementById('retakeBtn').style.display = 'none';
+            document.getElementById('restartBtn').style.display = 'none';
+            clearFilters();
         }
 
         function restartQuiz() {
@@ -802,6 +812,7 @@
             document.getElementById('questionContainer').style.display = 'block';
             document.getElementById('scoreDisplay').style.display = 'none';
             document.getElementById('restartBtn').style.display = 'none';
+            document.getElementById('retakeBtn').style.display = 'none';
             document.getElementById('fileInput').value = '';
             allQuestions = [];
             filteredQuestions = [];
@@ -818,6 +829,7 @@
         document.getElementById('submitBtn').addEventListener('click', submitAnswer);
         document.getElementById('nextBtn').addEventListener('click', nextQuestion);
         document.getElementById('restartBtn').addEventListener('click', restartQuiz);
+        document.getElementById('retakeBtn').addEventListener('click', retakeQuiz);
     </script>
 </body>
 </html>
